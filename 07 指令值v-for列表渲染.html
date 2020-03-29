@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表渲染</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <ul>
+                <!-- 绑定key 为id -->
+                <li v-for='(item,index) in menus' :item='item.id'>
+                    <h3>
+                        {{index}}--id:{{item.id}} 菜名：{{item.name}}
+                    </h3>
+                </li>
+            </ul>
+            <ol>
+                <!-- 列表渲染 https://cn.vuejs.org/v2/guide/list.html -->
+                <li v-for='(val,key) in obj' :key='key'>
+                    {{val}}--{{key}}
+                </li>
+            </ol>
+        </div>
+    </div>
+</body>
+<script src="vue.js"></script>
+
+<script>
+
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            menus: [
+                {
+                    id: 1,
+                    name: '大腰子'
+                },
+                {
+                    id: 2,
+                    name: '烤鸡翅'
+                },
+                {
+                    id: 3,
+                    name: '烤韭菜'
+                },
+                {
+                    id: 4,
+                    name: '烤大蒜'
+                }
+            ],
+            obj: {
+                title: 'Hello',
+                author: 'TanNgee'
+            }
+        },
+
+        methods: {
+
+
+        },
+    })
+</script>
+
+</html>

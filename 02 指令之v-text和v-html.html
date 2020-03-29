@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指令之v-text和v-html</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <!-- 类似于html5 innerText -->
+        <h2 v-text="msg"></h2>
+
+        <!-- 插入标签 -->
+        <h2 v-html="htmlMsg">
+
+        </h2>
+    </div>
+
+    <!-- 1.引包 -->
+    <script src="vue.js"></script>
+
+    <script>
+        // {{}} 和v-text的作用是一样的 都是插入值 直接渲染 innerText
+        // v-html既能插入值 又能插入标签 innerHTML
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '插入标签',
+                htmlMsg: '<h3>小马哥</h3>'
+            }
+        })
+    </script>
+
+</body>
+
+</html>

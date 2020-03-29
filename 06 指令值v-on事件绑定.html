@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on事件绑定</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .active {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h3>{{num}}</h3>
+        <button v-on:click="num+=1"> +1</button>
+        <!-- 事件修饰符 https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6 -->
+
+        <button v-on:click.once="handleClick">click</button>
+        <div class="box" :class={active:isActive}></div>
+
+        <!-- <button v-on:click="checkout">change color</button> -->
+        <!-- v-on 简写 -->
+        <button @click='checkout'></button>
+
+
+        <input type="text" name="" id="" v-on:keyup.enter='submit'>
+
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                num: 0,
+                isActive: false
+            },
+
+            methods: {
+                // handleClick: () => {
+                //     console.log(_this);
+
+                //     _this.num += 1;
+                // }
+                handleClick() {
+                    console.log(this);
+
+                    this.num += 1
+                },
+                checkout() {
+                    this.isActive = !this.isActive
+                },
+                submit(){
+                    alert('hh')
+                }
+            },
+        })
+        console.log(vm);
+    </script>
+</body>
+
+</html>

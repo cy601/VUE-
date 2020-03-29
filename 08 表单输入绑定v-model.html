@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue的双向数据绑定v-model</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <input type="text" v-model='msg'>
+        <!-- 复选框单选 -->
+        <label for="checkbox">{{checked}}</label>
+        <input type="checkbox" name="" id="checkbox" v-model="checked">
+
+
+        <div id="box">
+            <label for="a">黄瓜</label>
+            <input type="checkbox" name="" id="a" value="黄瓜" v-model="checkedNames">
+            <label for="a">西红柿</label>
+            <input type="checkbox" name="" id="b" value="西红柿" v-model="checkedNames">
+            <label for="a">芸豆</label>
+            <input type="checkbox" name="" id="c" value="芸豆" v-model="checkedNames">
+            <label for="a">秋瓜</label>
+            <input type="checkbox" name="" id="d" value="秋瓜" v-model="checkedNames">
+        </div>
+        <br>
+        <span>{{checkedNames}}</span>
+
+        <span>{{txt}}</span>
+
+        <!-- lazy 离开输入框之后才更新 -->
+        <input type="text" v-model.lazy="txt">
+
+        <label for="">{{msg2}}</label>
+
+        <!-- 清除空格 -->
+        <input type="text" v-model.trim="msg2">
+    </div>
+
+
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '小马哥',
+                checked: false,
+                txt: '',
+                checkedNames: [],
+            },
+            methods: {
+
+            },
+
+        })
+    </script>
+</body>
+
+</html>

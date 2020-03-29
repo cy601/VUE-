@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind指令</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <a v-bind:href="res.url" v-bind:title="res.title">{{res.name}}</a>
+        <!-- 简写 -->
+        <!-- <img :src="imgsrc" alt="a picture"> -->
+        <img v-bind:src="imgsrc" alt="">
+
+        <h3 v-bind:class="{active:isActive}">v-bind的用法</h3>
+
+        <h4 :style='{color:color,fontSize:fontSize+"px"}'>vue V-bind</h4>
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                res: {
+                    name: '百度',
+                    url: 'https://baidu.com',
+                    title: '百度一下',
+                },
+                imgsrc: 'https://cn.vuejs.org/images/logo.png',
+                isActive: true,
+                color:"darkgreen",
+                fontSize:30,
+            }
+        })
+        console.log(vm);
+
+    </script>
+</body>
+
+</html>

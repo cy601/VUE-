@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <div v-if='isShow'>
+            显示
+        </div>
+        <div v-else>
+            隐藏
+        </div>
+
+        <h3 v-show="show">正常显示</h3>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        // v-if v-else -if v-else v-show
+        // v-show无论显示与否始终渲染，v-if只有在true的时候才渲染，当需要频繁切换时用v-show
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                isShow: Math.random() > 0.5,
+                show: false
+            }
+        })
+        console.log(vm);
+
+    </script>
+</body>
+
+</html>
